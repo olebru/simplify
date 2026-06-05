@@ -1,0 +1,29 @@
+name: 'Simplify'
+description: 'Analyze a repo for cyclomatic complexity and lines of code per file across C#, TypeScript, JavaScript, and Python.'
+author: 'olebru'
+
+inputs:
+  paths:
+    description: 'Comma-separated paths to scan, relative to the repo root.'
+    required: false
+    default: '.'
+  max-loc:
+    description: 'Maximum non-blank lines per file before it is flagged.'
+    required: false
+    default: '300'
+  max-complexity:
+    description: 'Maximum cyclomatic complexity per file before it is flagged.'
+    required: false
+    default: '15'
+  fail-on-violation:
+    description: 'If true, the action exits with a non-zero status when any file exceeds a limit.'
+    required: false
+    default: 'true'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: 'bar-chart-2'
+  color: 'purple'
