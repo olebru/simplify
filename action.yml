@@ -23,6 +23,11 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    INPUT_PATHS: ${{ inputs.paths }}
+    INPUT_MAX_LOC: ${{ inputs.max-loc }}
+    INPUT_MAX_COMPLEXITY: ${{ inputs.max-complexity }}
+    INPUT_FAIL_ON_VIOLATION: ${{ inputs.fail-on-violation }}
 
 branding:
   icon: 'bar-chart-2'
